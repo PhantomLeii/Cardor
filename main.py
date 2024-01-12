@@ -7,11 +7,13 @@ def main():
         card_number = int(input("Card Number: "))
     except Exception as e:
         print(f"Error: {e}\nInput has to be a number")
+        pass
         
-
+        # 4293021017275607
     # create instance of Card
+    card = Card(card_number, name)
     # Validate card through all methods
-    pass
+    print(card)
 
 if __name__ == "__main__":
     main()

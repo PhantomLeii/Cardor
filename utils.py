@@ -24,7 +24,7 @@ class Card:
     def __is_valid(number):
         """Validate card number using length."""
         card_lengths = (13, 15, 16)
-        if not len(number) in card_lengths:
+        if not len(str(number)) in card_lengths:
             return False
         
         return True
