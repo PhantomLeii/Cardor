@@ -2,11 +2,6 @@
 Global functions required by Cardor for card number verification.
 """
 
-def count_digits(number):
-    pass
-
-def get_firt_number(number):
-    pass
-
-def pass_luhn_test(number):
-    pass
+def split_number(number):
+    num_data = tuple(str(number).split())
+    return (int(i) for i in num_data)
