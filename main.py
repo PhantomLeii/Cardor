@@ -14,33 +14,30 @@ def main():
     # Convert number to Tuple[int]
     number = split_number(number)
 
-    # Run 3 tests simultaneously
-    # Check american express validity
+    # Run test
     if get_first_number(number) == 34 or get_first_number(number) == 37:
-        if len(number) != 15 or not luhn_compliant(number):
+        if is_valid(number, 15) is False:
             print("INVALID")
-            return -1
-        
+            return 0
+
         print("AMEX")
         return 0
 
-    elif get_first_number(number) >= 51 and get_first_number <= 55:
-        if len(number) != 16 or not luhn_compliant(number):
+    elif get_first_number(number) >=51 and get_first_number(number) <= 55:
+        if is_valid(number, 16) is False:
             print("INVALID")
-            return -1
+            return 0
         
         print("MASTERCARD")
         return 0
     
-    elif str(get_first_number(number)).startswith("4"):
-        if len(number) not in (13, 16) or not luhn_compliant(number):
+    elif get_first_number(number) == 4:
+        if is_valid(number, (13, 16)) is False:
             print("INVALID")
-            return -1
+            return 0
         
         print("VISA")
         return 0
-    
-    print("INVALID")      
 
 if __name__ == "__main__":
     main()

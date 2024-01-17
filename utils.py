@@ -26,6 +26,9 @@ def split_number(number:iter) -> tuple:
     return tuple(store)
 
 def get_first_number(num:iter):
+    if num[0] == 4:
+        return int(num[0])
+    
     return int(str(num[0]) + str(num[1]))
 
 def digit_sum(val:int) -> int:
@@ -52,3 +55,14 @@ def luhn_compliant(num:iter) -> bool:
         return True
     else:
         return False
+
+def is_valid(number:iter, length) -> bool:
+    try:
+        if len(number) != length:
+            return False
+        return True
+    
+    except:
+        if len(number) not in length:
+            return False
+        return True
