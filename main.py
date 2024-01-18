@@ -7,7 +7,7 @@ def main():
     
     number = list([int(i) for i in card_number])
 
-    # Rejects failed property matches
+    # Check if valid AMEX card
     if get_first_number(number=number) == 34 or get_first_number(number=number) == 37:
         if len(number) != 15 or luhn_compliant(number) is False:
             print("INVALID")
@@ -15,6 +15,7 @@ def main():
         print("AMEX")
         return 0
     
+    # Check if valid MASTERCARD
     elif get_first_number(number=number) >= 51 and get_first_number(number=number) <= 55:
         if len(number) != 16 or luhn_compliant(number=number) is False:
             print("INVALID")
@@ -22,6 +23,7 @@ def main():
         print("MASTERCARD")
         return 0
     
+    # Check if valid VISA card
     elif get_first_number(number=number) == 4:
         lengths = (13, 16)
         if len(number) not in lengths or luhn_compliant(number) is False:
