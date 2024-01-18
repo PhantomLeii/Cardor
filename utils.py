@@ -1,68 +1,37 @@
-"""
-Global functions & structures required by Cardor for card number verification.
-"""
-
-# CONSTANTS = {
-#     "amex": (
-#         (15,), # digits
-#         (34, 37) # startswith
-#     ),
-
-#     "mastercard": (
-#         (16,),
-#         (51, 52, 52, 54, 55)
-#     ),
-
-#     "visa": (
-#         (13, 16),
-#         (4,)
-#     )
-# }
-
-def split_number(number:iter) -> tuple:
-    store = []
-    for i in number:
-        store.append(int(i))
-    return tuple(store)
-
-def get_first_number(num:iter):
-    if num[0] == 4:
-        return int(num[0])
+def get_first_number(number):
+    """Isolate the first 2 numbers or number if number starts with 4"""
+    if number[0] == 4:
+        return number[0]
     
-    return int(str(num[0]) + str(num[1]))
+    first_number = int(str(number[0]) + str(number[1]))
+    return first_number
 
-def digit_sum(val:int) -> int:
+def digit_sum(val):
+    """Calculate the sum of the digits in a number"""
     digit_sum = 0
     if val > 9:
-        digit_sum += sum([int(i) for i in str(val).split()])
+        digits = str(val)
+        digit_sum += (int(digits[0]) + int(digits[1]))
     else:
         digit_sum = val
     
     return digit_sum
 
-def luhn_compliant(num:iter) -> bool:
-    score = [0,0] # every_other, not_multiplied
+def luhn_compliant(number):
+    """Check if number complies with luhn algorithm rule"""
+    rev_number = number.reverse() # Reverse given card number
+    
+    score = [0, 0] # every_other, not_multiplied
     count = 0
-    for i in num:
+    for i in number:
         count += 1
         if count % 2 == 0:
             product = i * 2
             score[0] += digit_sum(product)
         else:
             score[1] += i
-
+        
     if sum(score) % 10 == 0:
         return True
-    else:
-        return False
-
-def is_valid(number:iter, length) -> bool:
-    try:
-        if len(number) != length:
-            return False
-        return True
     
-    except:
-        if len(number) not in length:
-            return False
-        return True
+    return False
