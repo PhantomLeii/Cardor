@@ -1,6 +1,6 @@
 # Cardor
 
-I started self-studying some computer science with materials and resources gathered by a community known as the (Open Source Society University (OSSU))[https://ossu.dev/]. They've compiled something really comprehensive, do have a look at what they have to offer. The project demonstrated here is an idea I got from the CS50x course hosted by (Harvard University)[https://harvard/] among all the courses and learning resources gathered by the fore mentioned body.
+I started self-studying some computer science with materials and resources gathered by a community known as the (OSSU)[https://ossu.dev/]. They've compiled something really comprehensive, do have a look at what they have to offer. The project demonstrated here is an idea I got from the CS50x course hosted by (Harvard University)[https://harvard/] among all the courses and learning resources gathered by the fore mentioned body.
 
 ## Desription
 Esentially, the goal of this project is to write a program that takes in a bank card number from the user and outputs whether the card is an American Express, Mastercard, Visa or invalid card  such that American Express is `AMEX`, MasterCard is `MASTERCARD`, Visa is `VISA` and all else is `INVALID`.
